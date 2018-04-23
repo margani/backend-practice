@@ -1,0 +1,23 @@
+{
+  "name": "google-drive-server",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.17.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "fs": "0.0.1-security",
+    "googleapis": "^27.0.0",
+    "hjs": "~0.0.6",
+    "morgan": "~1.8.1",
+    "nodemon": "^1.17.3",
+    "serve-favicon": "~2.4.2"
+  },
+  "engines": {
+    "node": "8.11.1"
+  }
+}
