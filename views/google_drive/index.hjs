@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+	
+	
+	<nav id="nav_bar" class="navbar navbar-primary " role="navigation">
+		<ul class="nav flex-column">
+			<li class="nav-item">
+				<a class="nav-link active" href="../">Home</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/google_drive/index">Google Drive</a>
+			</li>
+			
+		</ul>
+	</nav>
+	
+	
+	
+	
+	
+	<div id="content" class="container text-center ">
+		<h1 class="page-title">{{ title }}</h1>
+		<p>Welcome to {{ title }}</p>
+
+		
+		
+		
+		
+		{{^authorised}}
+			<p><button onclick="location.href='/google_drive/auth/google'" ><img src="../images/google_drive.jpg" class="img-fluid" width="200" height="100"></button><p>
+		{{/authorised}}
+
+		{{#authorised}}
+			<ul id="list" class="list-group list-group-flush text-center">
+			{{#files.length}}
+				{{#files}}
+					{{#isfolder}} 
+						<li class="list-group-item no-underline "><a href={{folderURL}}>{{name}}<button id="list_item" type="button" class="btn btn-primary" disabled>DownLoad</button></a></li>
+					{{/isfolder}}
+					{{^isfolder}} 
+						<li class="list-group-item text-align">{{name}}<a id="list_item" class="btn btn-primary" href={{id}} role="button">DownLoad</a></li>
+					{{/isfolder}}	
+				{{/files}}	
+			{{/files.length}}
+			</ul>
+		{{/authorised}}
+		
+		{{#authorised}}
+			<p><a id="logout" class="btn btn-primary" href="/google_drive/logout" >Log Out</a></p>
+		{{/authorised}}
+	</div>
+  </body>
+</html>
