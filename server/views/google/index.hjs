@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>{{ title }}</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+	<div class="wrapper">
+		<a href="../">Home</a> | <a href="/google/index">Google Drive</a>
+		<div>
+			{{#authorised}}
+			<p><a id="logout" class="btn btn-primary" href="/google/logout">Log Out</a></p>
+			{{/authorised}}
+			<h3>Welcome to {{ title }}</h3>
+			{{^authorised}}
+			<button onclick="location.href='/google/auth'">Google SignIn</button>
+			{{/authorised}}
+
+			{{#authorised}}
+			<ul id="list" class="list-group list-group-flush">
+				{{#files.length}}
+				{{#files}}
+				{{#isfolder}}
+				<li class="list-group-item no-underline ">
+					<a href={{folderURL}}>{{name}}</a>
+				</li>
+				{{/isfolder}}
+				{{^isfolder}}
+				<li class="list-group-item text-align">
+					<span>{{name}}</span>
+					<a id="btnDownload" href={{id}} role="button">Download</a>
+				</li>
+				{{/isfolder}}
+				{{/files}}
+				{{/files.length}}
+			</ul>
+			{{/authorised}}
+		</div>
+	</div>
+</body>
+
+</html>

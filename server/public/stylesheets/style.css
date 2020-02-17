@@ -1,0 +1,19 @@
+body {
+  background-size: cover;
+  color: #666;
+}
+.wrapper {
+  width: 800px;
+  margin: 15px auto;
+  padding: 15px;
+  box-shadow: 0 0 5px silver;
+  border-radius: 5px;
+}
+
+#logout {
+  float: right;
+}
+
+#btnDownload {
+  float: right;
+}
