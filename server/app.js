@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 var users = require('./routes/users');
 
 var index = require(__dirname + '/routes/index');
-var google_drive = require('./routes/google_drive');
+var google = require('./routes/google');
 
 
 var app = express();
@@ -30,9 +30,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 //app.use('/users', users);
 
 app.use('/',index);
-app.use('/google_drive',google_drive);
+app.use('/google',google);
 /*
-app.get('/', google_drive.index);
+app.get('/', google.index);
 app.get('/auth/google', router.auth);
 app.get('/auth/google/return', router.auth_return);
 */
